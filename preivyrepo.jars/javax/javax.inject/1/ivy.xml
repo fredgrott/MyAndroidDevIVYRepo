@@ -21,7 +21,7 @@
        xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
     <info
         organisation="javax"
-        module="javax-inject"
+        module="javax.inject"
         status="release"
         revision="1">
          <license name="Apache 2.0 License" url="http://www.apache.org/licenses/LICENSE-2.0"/>
@@ -36,8 +36,8 @@
          <conf name="sources" description="sources"/>
       </configurations>
     <publications >
-           <artifact name="javax-inject-1" type="jar" ext="jar" conf="compile"/>
-           <artifact name="javax-inject-1-javadoc" type="javadoc" ext="jar" conf="javadoc"/>
-           <artifact name="javax-inject-1-sources" type="sources" ext="jar" conf="sources"/>
+           <artifact name="javax.inject-1" type="jar" ext="jar" conf="compile"/>
+           <artifact name="javax.inject-1-javadoc" type="javadoc" ext="jar" conf="javadoc"/>
+           <artifact name="javax.inject-1-sources" type="sources" ext="jar" conf="sources"/>
     </publications>
 </ivy-module>

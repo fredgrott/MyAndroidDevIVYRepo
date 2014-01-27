@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     Jan 26, 2014 10:06:35 PM
+
+     MyAndroidDEvIVYRepo
+     ant script to setup local ivy repofor andorid app dev
+
+     Fred Grott
+     ====================================================================== -->
+<project name="MyAndroidDEvIVYRepo" default="default">
+    <description>
+            ant script to setup local ivy repofor andorid app dev
+    </description>
+
+
+
+	<path id="myivy.lib.path">
+	            <fileset dir="${basedir}/antlibs.bootstrap" includes="ivy-2.3.0.jar"/>
+	</path>
+
+	<taskdef resource="org/apache/ivy/ant/antlib.xml"
+	               uri="antlib:org.apache.ivy.ant"
+		          classpathref="myivy.lib.path"/>
+	<taskdef name="resolve"
+		          classname="org.apache.ivy.ant.IvyResolve"
+		          classpathref="myivy.lib.path"/>
+	<taskdef name="publish"
+		          classname="org.apache.ivy.ant.IvyPublish"
+		          classpathref="myivy.lib.path"/>
+
+
+    <!-- =================================
+          target: deploy
+         ================================= -->
+    <target name="deploy">
+        <!-- resolve task puls ivy file info into cache so that we re-use that
+             as special $ivy.* ant vars that than are used to
+             populate any not specified but needed ivy file fields
+             to be published in published task.
+
+             Ivy auto setsup the publication field with their own
+             now var which defaults to yyyyMMddHHmmss -->
+
+    	<!-- dexmaker -->
+    	<resolve
+    	                file="${basedir}/preivyrepo.jars/com/google/dexmaker/dexmaker/1.0/ivy.xml"
+    	                revision="1.0"/>
+    	                    <publish
+    	                       pubrevision="1.0" status="release"
+    	                       resolver="local" overwrite="true">
+    	                    <artifacts pattern="${basedir}/preivyrepo.jars/com/google/dexmaker/dexmaker/1.0/[artifact].[ext]"/>
+    	                    </publish>
+    	<!-- dexmaker-dx -->
+    	<resolve
+    	               file="${basedir}/preivyrepo.jars/com/google/dexmaker/dexmaker-dx/1.0/ivy.xml"
+    	               revision="1.0"/>
+    	                            <publish
+    	                               pubrevision="1.0" status="release"
+    	                               resolver="local" overwrite="true">
+    	                            <artifacts pattern="${basedir}/preivyrepo.jars/com/google/dexmaker/dexmaker-dx/1.0/[artifact].[ext]"/>
+    	                            </publish>
+
+    	<!-- dexmaker-mockito -->
+    	<resolve
+    	               file="${basedir}/preivyrepo.jars/com/google/dexmaker/dexmaker-mockito/1.0/ivy.xml"
+    	               revision="1.0"/>
+    	                                    <publish
+    	                                       pubrevision="1.0" status="release"
+    	                                       resolver="local" overwrite="true">
+    	                                    <artifacts pattern="${basedir}/preivyrepo.jars/com/google/dexmaker/dexmaker-mockito/1.0/[artifact].[ext]"/>
+    	                                    </publish>
+
+    	<!-- butterknife -->
+    	<resolve
+    	               file="${basedir}/preivyrepo.jars/com/jakewharton/butterknife/4.0.1/ivy.xml"
+    	               revision="4.0.1"/>
+    	                                            <publish
+    	                                               pubrevision="4.0.1" status="release"
+    	                                               resolver="local" overwrite="true">
+    	                                            <artifacts pattern="${basedir}/preivyrepo.jars/com/jakewharton/butterknife/4.0.1/[artifact].[ext]"/>
+    	                                            </publish>
+    	<!-- dagger -->
+    	<resolve
+    	               file="${basedir}/preivyrepo.jars/com/squareup/dagger/dagger/1.1.0/ivy.xml"
+    	               revision="1.1.0"/>
+    	               <publish
+    	                           pubrevision="1.1.0" status="release"
+    	                           resolver="local" overwrite="true">
+    	                           <artifacts pattern="${basedir}/preivyrepo.jars/com/squareup/dagger/dagger/1.1.0/[artifact].[ext]"/>
+    	                 </publish>
+
+
+
+	<!-- dagger-compiler -->
+	<resolve
+	                       file="${basedir}/preivyrepo.jars/com/squareup/dagger/dagger-compiler/1.1.0/ivy.xml"
+	                       revision="1.1.0"/>
+	                       <publish
+	                                   pubrevision="1.1.0" status="release"
+	                                   resolver="local" overwrite="true">
+	                                   <artifacts pattern="${basedir}/preivyrepo.jars/com/squareup/dagger/dagger-compiler/1.1.0/[artifact].[ext]"/>
+	                         </publish>
+
+    	<!--- fest-android -->
+    	<resolve
+    	                           file="${basedir}/preivyrepo.jars/com/squareup/fest-android/1.0.7/ivy.xml"
+    	                           revision="1.0.7"/>
+    	                           <publish
+    	                                       pubrevision="1.0.7" status="release"
+    	                                       resolver="local" overwrite="true">
+    	                                       <artifacts pattern="${basedir}/preivyrepo.jars/com/squareup/fest-android/1.0.7/[artifact].[ext]"/>
+    	                             </publish>
+
+    	    <!--flow -->
+    	<resolve
+    	                                   file="${basedir}/preivyrepo.jars/com/squareup/flow/flow/0.2/ivy.xml"
+    	                                   revision="0.2"/>
+    	                                   <publish
+    	                                               pubrevision="0.2" status="release"
+    	                                               resolver="local" overwrite="true">
+    	                                               <artifacts pattern="${basedir}/preivyrepo.jars/com/squareup/flow/flow/0.2/[artifact].[ext]"/>
+    	                                     </publish>
+
+    	    <!--javawriter -->
+    	<resolve
+    	                                           file="${basedir}/preivyrepo.jars/com/squareup/javawriter/2.1.1/ivy.xml"
+    	                                           revision="2.1.1"/>
+    	                                           <publish
+    	                                                       pubrevision="2.1.1" status="release"
+    	                                                       resolver="local" overwrite="true">
+    	                                                       <artifacts pattern="${basedir}/preivyrepo.jars/com/squareup/javawriter/2.1.1/[artifact].[ext]"/>
+    	                                             </publish>
+
+    	    <!-- mortar -->
+    	<resolve
+    	                                                   file="${basedir}/preivyrepo.jars/com/squareup/mortar/mortar/0.2/ivy.xml"
+    	                                                   revision="0.2"/>
+    	                                                   <publish
+    	                                                               pubrevision="0.2" status="release"
+    	                                                               resolver="local" overwrite="true">
+    	                                                               <artifacts pattern="${basedir}/preivyrepo.jars/com/squareup/mortar/mortar/0.2/[artifact].[ext]"/>
+    	                                                     </publish>
+
+
+    	    <!-- otto -->
+    	<resolve
+    	                                                           file="${basedir}/preivyrepo.jars/com/squareup/otto/1.3.4/ivy.xml"
+    	                                                           revision="1.3.4"/>
+    	                                                           <publish
+    	                                                                       pubrevision="1.3.4" status="release"
+    	                                                                       resolver="local" overwrite="true">
+    	                                                                       <artifacts pattern="${basedir}/preivyrepo.jars/com/squareup/otto/1.3.4/[artifact].[ext]"/>
+    	                                                             </publish>
+    	<!-- espresso -->
+    	<resolve
+    	                                                                   file="${basedir}/preivyrepo.jars/gws/grottworkshop/android-test-kit/espresso-contrib-bundled/1.1/ivy.xml"
+    	                                                                   revision="1.1"/>
+    	                                                                   <publish
+    	                                                                               pubrevision="1.1" status="release"
+    	                                                                               resolver="local" overwrite="true">
+    	                                                                               <artifacts pattern="${basedir}/preivyrepo.jars/gws/grottworkshop/android-test-kit/espresso-contrib-bundled/1.1/[artifact].[ext]"/>
+    	                                                                     </publish>
+    	<!-- gwsdroidlava -->
+    	<resolve
+    	                                                                           file="${basedir}/preivyrepo.jars/gws/grottworkshop/gwsdroidlava/1.0/ivy.xml"
+    	                                                                           revision="1.0"/>
+    	                                                                           <publish
+    	                                                                                       pubrevision="1.0" status="release"
+    	                                                                                       resolver="local" overwrite="true">
+    	                                                                                       <artifacts pattern="${basedir}/preivyrepo.jars/gws/grottworkshop/gwsdroidlava/1.0/[artifact].[ext]"/>
+    	                                                                             </publish>
+    	<!-- zutubi-android-ant -->
+    	<resolve
+    	                                                                                   file="${basedir}/preivyrepo.jars/gws/grottworkshop/zutubi-android-ant/0.7.13/ivy.xml"
+    	                                                                                   revision="0.7.13"/>
+    	                                                                                   <publish
+    	                                                                                               pubrevision="0.7.13" status="release"
+    	                                                                                               resolver="local" overwrite="true">
+    	                                                                                               <artifacts pattern="${basedir}/preivyrepo.jars/gws/grottworkshop/zutubi-android-ant/0.7.13/[artifact].[ext]"/>
+    	                                                                                     </publish>
+    	<!-- javax inject-->
+    	<resolve
+    	                                                                                           file="${basedir}/preivyrepo.jars/javax/javax.inject/1/ivy.xml"
+    	                                                                                           revision="1"/>
+    	                                                                                           <publish
+    	                                                                                                       pubrevision="1" status="release"
+    	                                                                                                       resolver="local" overwrite="true">
+    	                                                                                                       <artifacts pattern="${basedir}/preivyrepo.jars/javax/javax.inject/1/[artifact].[ext]"/>
+    	                                                                                             </publish>
+    	<!-- mockito-core -->
+    	<resolve
+    	                                                                                                   file="${basedir}/preivyrepo.jars/org/mockito/mockito-core/1.9.5/ivy.xml"
+    	                                                                                                   revision="1.9.5"/>
+    	                                                                                                   <publish
+    	                                                                                                               pubrevision="1.9.5" status="release"
+    	                                                                                                               resolver="local" overwrite="true">
+    	                                                                                                               <artifacts pattern="${basedir}/preivyrepo.jars/org/mockito/mockito-core/1.9.5/[artifact].[ext]"/>
+    	                                                                                                     </publish>
+    	<!-- objenesis -->
+    	<resolve
+    	                                                                                                           file="${basedir}/preivyrepo.jars/org/objenesis/objenesis/1.0/ivy.xml"
+    	                                                                                                           revision="1.0"/>
+    	                                                                                                           <publish
+    	                                                                                                                       pubrevision="1.0" status="release"
+    	                                                                                                                       resolver="local" overwrite="true">
+    	                                                                                                                       <artifacts pattern="${basedir}/preivyrepo.jars/org/objenesis/objenesis/1.0/[artifact].[ext]"/>
+    	                                                                                                             </publish>
+
+
+
+	        </target>
+
+
+
+
+
+    <!-- =================================
+          target: default
+         ================================= -->
+    <target name="default" depends="depends" description="ant script to setup local ivy repofor andorid app dev">
+
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - -
+          target: depends
+         - - - - - - - - - - - - - - - - - -->
+    <target name="depends">
+    </target>
+
+</project>
