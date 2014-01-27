@@ -205,8 +205,50 @@
     	                                                                                                                       resolver="local" overwrite="true">
     	                                                                                                                       <artifacts pattern="${basedir}/preivyrepo.jars/org/objenesis/objenesis/1.0/[artifact].[ext]"/>
     	                                                                                                             </publish>
+    	<!-- checkstyle as of jan 27 2104 stil need to use ant task as
+    	       android gradle plugin does not use the main grale java plugin which allows the gradle checkstyle plugin see
+    	       bug 56232
+    	       https://code.google.com/p/android/issues/detail?id=56232
+    	       -->
+    	<resolve
+    	                                                                                                                   file="${basedir}/preivyrepo.jars/gws/grottworkshop/checkstyle/checkstyle-all/5.6/ivy.xml"
+    	                                                                                                                   revision="5.6"/>
+    	                                                                                                                   <publish
+    	                                                                                                                               pubrevision="5.6" status="release"
+    	                                                                                                                               resolver="local" overwrite="true">
+    	                                                                                                                               <artifacts pattern="${basedir}/preivyrepo.jars/gws/grottworkshop/checkstyle/checkstyle-all/5.6/[artifact].[ext]"/>
+    	                                                                                                                     </publish>
+
+    	<!-- classycle anyttask -->
+    	<resolve
+    	                file="${basedir}/preivyrepo.jars/org/specs2/classycle/1.4.1/ivy.xml"
+    	                revision="1.4.1"/>
+    	                <publish
+    	                         pubrevision="1.4.1" status="release"
+    	                         resolver="local" overwrite="true">
+    	                         <artifacts pattern="${basedir}/preivyrepo.jars/org/specs2/classycle/1.4.1/[artifact].[ext]"/>
+    	                </publish>
 
 
+    	<!-- javancss ant task -->
+    	<resolve
+    	                        file="${basedir}/preivyrepo.jars/gws/grottworkshop/javancss/32.53/ivy.xml"
+    	                        revision="32.53"/>
+    	                        <publish
+    	                                 pubrevision="32.53" status="release"
+    	                                 resolver="local" overwrite="true">
+    	                                 <artifacts pattern="${basedir}/preivyrepo.jars/gws/grottworkshop/javancss/32.53/[artifact].[ext]"/>
+    	                        </publish>
+
+    	<!-- jdepedn gradle plugin dep -->
+    	<resolve
+    	                                file="${basedir}/preivyrepo.jars/jdepend/jdepend/2.9.1/ivy.xml"
+    	                                revision="2.9.1"/>
+    	                                <publish
+    	                                         pubrevision="2.9.1" status="release"
+    	                                         resolver="local" overwrite="true">
+    	                                         <artifacts pattern="${basedir}/preivyrepo.jars/jdepend/jdepend/2.9.1/[artifact].[ext]"/>
+    	                                </publish>
 
 	        </target>
 
