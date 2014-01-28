@@ -32,10 +32,10 @@
 	</info>
 	<configurations>
         <conf name="anttask" description="for ant"/>
-
+        <conf name="classpath" description="for classpath"/>
       </configurations>
     <publications >
-           <artifact name="zutubi-android-ant-0.7.13" type="jar" ext="jar" conf="anttask"/>
+           <artifact name="zutubi-android-ant-0.7.13" type="jar" ext="jar" conf="anttask, classpath"/>
 
     </publications>
 </ivy-module>

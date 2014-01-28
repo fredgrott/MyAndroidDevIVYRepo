@@ -32,10 +32,10 @@
 	</info>
 	<configurations>
         <conf name="anttask" description="for ant"/>
-
+        <conf name="classpath" description="for classpath"/>
       </configurations>
     <publications >
-           <artifact name="checkstyle-5.6-all" type="jar" ext="jar" conf="anttask"/>
+           <artifact name="checkstyle-5.6-all" type="jar" ext="jar" conf="anttask,classpath"/>
 
     </publications>
 </ivy-module>

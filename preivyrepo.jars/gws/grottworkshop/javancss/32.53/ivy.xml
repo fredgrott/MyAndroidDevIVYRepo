@@ -32,12 +32,12 @@
 	</info>
 	<configurations>
         <conf name="anttask" description="for ant"/>
-
+        <conf name="classpath" description="for classpath"/>
       </configurations>
     <publications >
-           <artifact name="ccl" type="jar" ext="jar" conf="anttask"/>
-          <artifact name="javacc" type="jar" ext="jar" conf="anttask"/>
-          <artifact name="javancss" type="jar" ext="jar" conf="anttask"/>
-          <artifact name="jhbasic" type="jar" ext="jar" conf="anttask"/>
+           <artifact name="ccl" type="jar" ext="jar" conf="anttask, classpath"/>
+          <artifact name="javacc" type="jar" ext="jar" conf="anttask, classpath"/>
+          <artifact name="javancss" type="jar" ext="jar" conf="anttask, classpath"/>
+          <artifact name="jhbasic" type="jar" ext="jar" conf="anttask, classpath"/>
     </publications>
 </ivy-module>
